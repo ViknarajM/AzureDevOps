@@ -31,7 +31,7 @@
     },
     "publicIpName": {
       "type": "string",
-      "defaultValue": "myPublicIP",
+      "defaultValue": "tnoaPubIP",
       "metadata": {
         "description": "Name for the Public IP used to access the Virtual Machine."
       }
@@ -106,7 +106,7 @@
     },
     "vmName": {
       "type": "string",
-      "defaultValue": "tnoa-vm",
+      "defaultValue": "tnoa2-vm",
       "metadata": {
         "description": "Name of the virtual machine."
       }
@@ -126,11 +126,11 @@
   "variables": {
     "storageAccountName": "[format('bootdiags{0}', uniqueString(resourceGroup().id))]",
     "nicName": "tnoaVMNic",
-    "addressPrefix": "10.200.0.0/16",
+    "addressPrefix": "10.100.0.0/16",
     "subnetName": "internal",
-    "subnetPrefix": "10.200.0.0/24",
-    "virtualNetworkName": "TNOAVNET",
-    "networkSecurityGroupName": "tnoa-NSG",
+    "subnetPrefix": "10.100.0.0/24",
+    "virtualNetworkName": "TNOA2VNET",
+    "networkSecurityGroupName": "tnoa2-NSG",
     "securityProfileJson": {
       "uefiSettings": {
         "secureBootEnabled": true,
@@ -178,9 +178,9 @@
       "properties": {
         "securityRules": [
           {
-            "name": "default-allow-3389",
+            "name": "allow-RDP",
             "properties": {
-              "priority": 1000,
+              "priority": 100,
               "access": "Allow",
               "direction": "Inbound",
               "destinationPortRange": "3389",
