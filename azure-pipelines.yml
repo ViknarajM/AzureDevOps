@@ -10,6 +10,12 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: AzureKeyVault@2
+  inputs:
+    azureSubscription: 'AzureSub'
+    KeyVaultName: 'azurevmtnoa'
+    SecretsFilter: 'tnoaadmin'
+    RunAsPreJob: true
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
@@ -21,5 +27,6 @@ steps:
     templateLocation: 'Linked artifact'
     csmFile: 'azuredeploy.json'
     csmParametersFile: 'azuredeploy.parameters.json'
+    overrideParameters: '-adminPassword $(tnoaadmin)'
     deploymentMode: 'Incremental'
-    deploymentName: 'newVMdeploy'
+    deploymentName: 'azurekvvmdeploy'
