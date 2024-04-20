@@ -31,7 +31,7 @@
     },
     "publicIpName": {
       "type": "string",
-      "defaultValue": "tnoaPubIP",
+      "defaultValue": "VikiVMPubIP",
       "metadata": {
         "description": "Name for the Public IP used to access the Virtual Machine."
       }
@@ -106,7 +106,7 @@
     },
     "vmName": {
       "type": "string",
-      "defaultValue": "tnoa2-vm",
+      "defaultValue": "viki-vm",
       "metadata": {
         "description": "Name of the virtual machine."
       }
@@ -125,11 +125,11 @@
   },
   "variables": {
     "storageAccountName": "[format('bootdiags{0}', uniqueString(resourceGroup().id))]",
-    "nicName": "tnoaVMNic",
+    "nicName": "vikiVMNic",
     "addressPrefix": "10.100.0.0/16",
     "subnetName": "internal",
     "subnetPrefix": "10.100.0.0/24",
-    "virtualNetworkName": "TNOA2VNET",
+    "virtualNetworkName": "vikiVNET",
     "networkSecurityGroupName": "tnoa2-NSG",
     "securityProfileJson": {
       "uefiSettings": {
