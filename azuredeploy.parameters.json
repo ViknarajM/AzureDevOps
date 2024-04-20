@@ -3,13 +3,13 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminUsername": {
-      "value": "tnoaadmin"
+      "value": "azureadmin"
     },
     "adminPassword": {
       "value": ""
     },
     "dnsLabelPrefix": {
-      "value": "tnoabatti"
+      "value": "azurebatti"
     }
   }
 }
